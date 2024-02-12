@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="calculator"> 
+        <form name="forms">
+            <input type="text" name="output" readonly>
+            <input type="button" class="clear" value="C" onclick="appendToOutput('c')">
+            <input type="button" class="operator" value="/" onclick="appendToOutput('/')">
+            <input type="button" value="1" onclick="appendToOutput('1')">
+            <input type="button" value="2" onclick="appendToOutput('2')">
+            <input type="button" value="3"onclick="appendToOutput('3')">
+            <input type="button" class="operator" value="*" onclick="appendToOutput('*')">
+            <input type="button" value="4" onclick="appendToOutput('4')">
+            <input type="button" value="5" onclick="appendToOutput('5')">
+            <input type="button" value="6" onclick="appendToOutput('6')">
+            <input type="button" class="operator" value="+" onclick="appendToOutput('+')">
+            <input type="button" value="7" onclick="appendToOutput('7')">
+            <input type="button" value="8" onclick="appendToOutput('8')">
+            <input type="button" value="9" onclick="appendToOutput('9')">
+            <input type="button" class="operator" value="-" onclick="appendToOutput('-')">
+            <input type="button" class="dot" value="." onclick="appendToOutput('.')">
+            <input type="button" value="0" onclick="appendToOutput('0')">
+            <input type="button" class="operator result" value="=" onclick="appendToOutput('')">
+        </form>
+    </div>
+</body>
+<script>
+    function appendToOutput(value){
+        document.forms.output.value+=value;
+        console.log(value);
+        if (value==='c') document.forms.output.value='';
+        if (value==='') document.forms.output.value=eval(document.forms.output.value);
+    }
+</script>
+
+</html>
+<!-- 버튼에 따라서 스타일(색상 및 크기)을 달리하기 위해서 class를 정해준다.
+    버튼을 눌렀을 때 계산이 될 수 있도록 자바스크립트를 추가해준다. 
+    실제 수식처럼 계산해주는 메소드 eval
+ -->

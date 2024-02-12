@@ -1,0 +1,65 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #1f1f1f;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator{
+    width: 287px;
+    border:1px solid #333;
+    background-color: #ccc;
+    padding:5px;
+
+}
+
+.calculator form{  
+    /*calculator 안에 form이라는 태그가 있음
+    4열짜리이고 가로세로가 65픽셀
+    css에서 .을 해주는 기준과 아닌 기준은 무엇인가? class
+    #은 id선택자를 의미한다. 
+    .calculator form input[type='text']{
+    grid-column: span 4; 
+}은 타입이 text인 거는 그리드 컬럼을 이용해서 4칸을 차지하도록 
+    계산기가 중앙에 오도록 지정하는 것은 display(수평 )와 justify와 align-item을 통해(중앙) 할 수있다 
+     */
+    display:grid;
+    grid-template-columns: repeat(4,65px);
+    grid-auto-rows:65px;
+    grid-gap:5px;
+}
+
+.calculator form input{
+    border:2px solid #333;
+    cursor: pointer;
+    font-size: 19px;
+}
+.calculator form input:hover{
+    box-shadow: 1px 1px 2px #333;
+}
+.calculator form .clear{
+    background-color: #ed4848;
+}
+.calculator form .operator{
+    background-color: orange;
+}
+.calculator form .dot{
+    background-color: green;
+}
+.calculator form input[type='text']{
+    grid-column: span 4; 
+    text-align: right;
+    padding:0 10px;
+}
+.calculator form .clear{
+    grid-column:  span 3;
+}
+.calculator form .result{
+    grid-column: span 2;
+}
