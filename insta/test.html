@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input 데이터 전송</title>
+</head>
+<body>
+
+<input type="text" id="input1" placeholder="Input 1">
+<input type="text" id="input2" placeholder="Input 2">
+<input type="text" id="input3" placeholder="Input 3">
+<input type="text" id="input4" placeholder="Input 4">
+
+<button id="sendDataBtn">데이터 전송</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+<script>
+    $(document).ready(function() {
+    // '데이터 전송' 버튼 클릭 시
+    $('#sendDataBtn').click(function() {
+        // 입력된 값 가져오기
+        var input1 = $('#input1').val();
+        var input2 = $('#input2').val();
+        
+        // 데이터 객체 생성
+        var data = {
+            input1: input1,
+            input2: input2
+        };
+        
+        // AJAX POST 요청 보내기
+        $.ajax({
+            url: 're.json', // 서버의 엔드포인트 URL로 대체해야 함
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            success: function(response) {
+                console.log('데이터가 성공적으로 전송되었습니다.');
+                // 성공 시 처리
+            },
+            error: function(xhr, status, error) {
+                console.error('데이터 전송 중 오류 발생:', error);
+                // 오류 시 처리
+            }
+        });
+    });
+});
+
+</script>
+</html>

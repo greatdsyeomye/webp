@@ -1,0 +1,141 @@
+body{
+    display:flex;
+    flex-direction: column;
+    height: 90%;
+}
+footer{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 10px;
+    height: 10%;
+}
+
+/*웹 화면상에 보이는 왼쪽 핸드폰 사진과 오른쪽 여러박스들을 묶은 display-flex
+그 안에서 class를 phone, box로 나누었다.*/
+.display-flex{
+    display:flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin: 32px 0px 0px;
+    padding: 0px 0px 32px;
+}
+/*phone 클래스의 css background-image를 핸드폰 url을 넣고, 
+그 안에 있는 img position을 absolute로 두고 top과 left를 설정해서 고정시킴*/
+.phone{
+    text-align: center;
+    background-image: url('https://static.cdninstagram.com/images/instagram/xig/homepage/phones/home-phones.png?__makehaste_cache_breaker=HOgRclNOosk');
+    width: 430px;
+    margin-right: 30px;
+    position: relative;
+}
+.phone img{
+    display:block;
+    width:250px;
+    position: absolute;
+    top:25px;
+    left: 160px;
+}
+.box{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    /* margin: 0 auto; 여백 없이 붙여서*/
+}
+
+.b1,.b2{
+    align-items: center;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 1px;
+    box-sizing: border-box;
+    font: inherit;
+    font-size: 100%;
+    margin: 0 0 10px;
+    padding: 10px 0;
+    position: relative;
+    vertical-align: baseline;
+}
+input{
+    width: 265px;
+    height: 36px;
+    margin-bottom: 10px; 
+    background-color: rgba(0,0,0,0.05);
+    border-width: 0;
+}
+
+/*버튼활성화*/
+.new ,.login,.flogin{
+    background-color: #0095F6;  
+    color:white;
+    width: 265px;
+    height: 32px;
+    margin:10px;
+    border-radius: 5px;
+    border: none;
+}
+.new:disabled,.login:disabled{
+    background-color: #B2DFFC;
+}
+
+.box img{
+    width: 135px;
+    height: 43.6px;
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+}
+.box .b1 .hr-sect {
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color:gray;
+    font-weight: bolder;
+	font-size: 12px;
+	margin: 8px 0px;
+}
+/*hr-sect class지정해서 ::before,::after로 구분선*/
+.box .b1 .hr-sect::before,
+.box .b1 .hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: gray;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 10px 30px;
+}
+
+.f{
+    background-repeat: no-repeat;
+    background-position: -414px -259px;
+    height: 16px;
+    width: 16px;
+    background-image: url('https://static.cdninstagram.com/rsrc.php/v3/y5/r/TJztmXpWTmS.png');
+    display: inline-block; /*내용이 없는 경우에도 span이 보이게 */
+}
+
+/*footer 부분*/
+.menu-details ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+.menu {
+    padding: 10px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+.menu-details ul {
+    text-align: center;
+}
+.menu-details ul li a {
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    font-size: 10px;
+}
+
+@media screen and (max-width:875px){
+    .phone{
+        display: none;
+    }
+}
